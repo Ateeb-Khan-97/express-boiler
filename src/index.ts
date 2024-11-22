@@ -9,8 +9,7 @@ import { ErrorHandler } from './middleware/error.handler';
 import { protectMiddleware } from './middleware/protect.middleware';
 
 async function bootstrap() {
-  const app = await ExpressFactory.create({
-    app: express(),
+  const app = await ExpressFactory.create(express(), {
     baseModule: AppModule,
     authMiddleware: protectMiddleware,
     plugins: [express.json(), cors({ origin: '*' })],
